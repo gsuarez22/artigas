@@ -11,3 +11,12 @@ class cliente(models.Model):
     email=models.EmailField(max_length=255)
     fecha_nacimiento=models.DateField()
     detalle=models.CharField(max_length=255)
+
+class tarjeta(models.Model):
+    id_cliente = models.ForeignKey(cliente, on_delete=models.CASCADE)
+    numero=models.CharField(max_length=16)
+    vto=models.DateField()
+    cod_verificador=models.CharField(max_length=4)
+    operador=models.CharField(max_length=50)
+    precargado=models.CharField(max_length=2)
+
